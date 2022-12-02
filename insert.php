@@ -14,7 +14,7 @@
             die('Failed to connect to MySQL: '.mysqli_connect_error());
         }
 
-        $res = mysqli_query($conn, "SHOW TABLES LIKE 'Products'");
+        $res = mysqli_query($conn, "SHOW TABLES LIKE 'usk'");
     
         if (mysqli_num_rows($res) <= 0) {
             //Create table if it does not exist
@@ -25,17 +25,21 @@
         }
 
         // Insert data from form
-        $ProductName = $_POST['ProductName'];
-        $Price = $_POST['Price'];
+        $fname = $_POST['fname'];
+$lname = $_POST['lname'];
+$email = $_POST['email'];
+$phone = $_POST['phone'];
+$book = $_POST['book'];
+$OperatingSystem = $_POST['OperatingSystem'];
 
-        if ($stmt = mysqli_prepare($conn, "INSERT INTO Products (ProductName, Price) VALUES (?, ?)")) {
-            mysqli_stmt_bind_param($stmt, 'sd', $ProductName, $Price);
+        if ($stmt = mysqli_prepare($conn, "INSERT INTO usk fname, lname, email, phone, book, OperatingSystem) values(?,?,?,?,?,?)")) {
+            mysqli_stmt_bind_param($stmt, "ssssss",$fname,$lname,$email,$phone,$book,$OperatingSystem);
             mysqli_stmt_execute($stmt);
             if (mysqli_stmt_affected_rows($stmt) == 0) {
                 echo "<h2>Catalog update failed.</h2>";
             }
             else {
-                echo "<h2>Product \"$ProductName\" has been successfully added.</h2>";
+                echo "<h2>Hi $fname Thank you for completing the survey.</h2>";
             }
             mysqli_stmt_close($stmt);
             
@@ -48,21 +52,45 @@
 
     ?>
 
-    <h2>Add a Product</h2>
+    <h2>Registeration form</h2>
     <br>
 
     <form method="post" action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <table>
-            <tr>
-                <td class="no-border"> <label for="ProductName">Product Name</label> </td>
-                <td class="no-border"> <input type="text" name="ProductName" id="ProductName"> </td>
-            </tr>
-            <tr>
-                <td class="no-border"> <label for="Price">Price (USD)</label> </td>
-                <td class="no-border"> <input type="text" name="Price" id="Price"> </td>
-            </tr>
-        </table>      
-        <br><br>
+    <label for="fname">First Name: </label>
+      <input type="text" name="fname" id="fname" required><br><br>
+
+      <label for="lname">Last Name: </label>
+      <input type="text" name="lname" id="lname" required><br><br>
+
+      <label for="email">Email: </label>
+      <input type="email" name="email" id="email" required><br><br>
+
+      <label for="phone">Phone:</label>
+      <input type="tel" name="phone" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="555-555-5555" required><br><br>
+
+      <h2>Publications</h2>
+      <p>Which book would you like information about?</p>
+      <select name="book" id="book">
+        <option value="Internet and www How to program">Internet and www How to program</option>
+        <option value="C++ How to program">C++ How to program</option>
+        <option value="Java How to program">Java How to program</option>
+        <option value="Visual basics How to program">Visual basics How to program</option>
+      </select><br>
+
+      <h2>Operating System</h2>
+      <p>Which operating system do you use?</p>
+
+      <input type="radio" name="OperatingSystem"  id="OperatingSystem" value="Windows">
+      <label for="Windows">Windows</label>
+      <input type="radio" name="OperatingSystem" id="OperatingSystem" value="Mac OS">
+      <label for="Mac Os">Mac Os</label>
+      <input type="radio" name="OperatingSystem" id="OperatingSystem" value="Linux">
+      <label for="Linux">Linux</label>
+      <input type="radio" name="OperatingSystem" id="OperatingSystem" value="Other">
+      <label for="Other">Other</label>
+
+      <br><br>
+
         <input type="submit" name="submit" value="Submit">
     </form>
 
@@ -71,13 +99,7 @@
     ?>
 
     <br> <br> <br>
-    <table>
-        <tr>
-            <td> <a href="insert.php">Add Another Product</a> </td>
-            <td> <a href="read.php">View Catalog</a> </td>
-            <td> <a href="index.php">Back to Home Page</a> </td>
-        </tr>
-    </table>
+    
 
 </div>
 

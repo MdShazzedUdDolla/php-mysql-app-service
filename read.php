@@ -29,11 +29,12 @@
         else {
             echo "<table> <tr align=\"left\"> <th>  Name </th> <th> Email </th> <th> Phone </th> <th> Book </th> <th> OperatingSystem </th> </tr>";
             while ($row = mysqli_fetch_assoc($res)) {
-                echo "<tr align=\"left\"> <td> ".$row["fname"]." </td>";
-                echo "<td> ".$row["email"]." </td> </tr>";
-                echo "<td> ".$row["phone"]." </td> </tr>";
-                echo "<td> ".$row["book"]." </td> </tr>";
-                echo "<td> ".$row["OperatingSystem"]." </td> </tr>";
+                echo "<tr><td>".$row["fname"]."</td><td>".$row["email"]."</td><td>".$row["phone"]."</td><td>".$row["book"]."</td><td>".$row["OperatingSystem"]."</td></td><br>";
+                // echo "<tr align=\"left\"> <td> ".$row["fname"]." </td>";
+                // echo "<td> ".$row["email"]." </td> </tr>";
+                // echo "<td> ".$row["phone"]." </td> </tr>";
+                // echo "<td> ".$row["book"]." </td> </tr>";
+                // echo "<td> ".$row["OperatingSystem"]." </td> </tr>";
             }
             echo "</table>";
         }

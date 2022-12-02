@@ -70,7 +70,7 @@
                 <td class="no-border"> <input type="text" name="email" id="email"> </td>
             </tr>
             <tr>
-                <td class="no-border"> <label for="phone">email</label> </td>
+                <td class="no-border"> <label for="phone">Phone</label> </td>
                 <td class="no-border"> <input type="text" name="phone" id="phone"> </td>
             </tr>
         </table>      
@@ -96,6 +96,7 @@
       <input type="radio" name="OperatingSystem" id="OperatingSystem" value="Other">
       <label for="Other">Other</label>
 
+      <br><br>
         <input type="submit" name="submit" value="Submit">
     </form>
 

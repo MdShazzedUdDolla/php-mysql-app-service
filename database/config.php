@@ -2,8 +2,8 @@
 
 // Configuration for database connection
 
-$host       = getenv('DB_HOST');
-$username   = getenv('DB_USERNAME');
-$password   = getenv('DB_PASSWORD');
-$db_name     = getenv('DB_DATABASE');
+$host       = 'mdolla12.mysql.database.azure.com';
+$username   = 'mdolla';
+$password   = '123Abcradiofm';
+$db_name     = 'dbbb';
 $sslcert    = "ssl/DigiCertGlobalRootCA.crt.pem";

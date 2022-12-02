@@ -27,10 +27,13 @@
             echo "<h2>Table is empty.</h2>";
         }
         else {
-            echo "<table> <tr align=\"left\"> <th>  Name </th> <th> Email </th> </tr>";
+            echo "<table> <tr align=\"left\"> <th>  Name </th> <th> Email </th> <th> Phone </th> <th> Book </th> <th> OperatingSystem </th> </tr>";
             while ($row = mysqli_fetch_assoc($res)) {
                 echo "<tr align=\"left\"> <td> ".$row["fname"]." </td>";
                 echo "<td> ".$row["email"]." </td> </tr>";
+                echo "<td> ".$row["phone"]." </td> </tr>";
+                echo "<td> ".$row["book"]." </td> </tr>";
+                echo "<td> ".$row["OperatingSystem"]." </td> </tr>";
             }
             echo "</table>";
         }

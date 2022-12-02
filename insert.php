@@ -70,7 +70,7 @@
         }
     ?>
 
-
+<a href = "read.php">Table list</a>;
 </div>
 
 <?php require "templates/footer.php"; ?>

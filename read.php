@@ -24,13 +24,13 @@
         $res = mysqli_query($conn, 'SELECT * FROM Products');
 
         if (mysqli_num_rows($res) <= 0) {
-            echo "<h2>Catalog is empty.</h2>";
+            echo "<h2>Table is empty.</h2>";
         }
         else {
-            echo "<table> <tr align=\"left\"> <th> Product Name </th> <th> Price (USD) </th> </tr>";
+            echo "<table> <tr align=\"left\"> <th>  Name </th> <th> Email </th> </tr>";
             while ($row = mysqli_fetch_assoc($res)) {
-                echo "<tr align=\"left\"> <td> ".$row["ProductName"]." </td>";
-                echo "<td> ".$row["Price"]." </td> </tr>";
+                echo "<tr align=\"left\"> <td> ".$row["fname"]." </td>";
+                echo "<td> ".$row["email"]." </td> </tr>";
             }
             echo "</table>";
         }
@@ -45,10 +45,7 @@
 
     <table>
         <tr>
-            <td> <a href="insert.php">Add a Product</a> </td>
-            <td> <a href="update.php">Update a Product</a> </td>
-            <td> <a href="delete.php">Remove a Product</a> </td>
-            <td> <a href="index.php">Back to Home Page</a> </td>
+        <td> <a href="insert.php">Registration Form</a> </td>
         </tr>
     </table>
     
